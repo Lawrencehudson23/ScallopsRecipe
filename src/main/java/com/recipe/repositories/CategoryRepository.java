@@ -10,6 +10,6 @@ import com.recipe.models.Category;
 @Repository
 public interface CategoryRepository extends CrudRepository<Category,Long> {
 
-    Optional<Category> findByCategoryName(String categoryName);
+    Optional<Category> findByName(String name);
 }
 

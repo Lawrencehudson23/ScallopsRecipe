@@ -3,9 +3,9 @@ package com.recipe.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.recipe.models.FavrecipeFavuser;
+import com.recipe.models.Review;
 
 @Repository
-public interface FavrecipeFavuserRepository extends CrudRepository<FavrecipeFavuser, Long> {
+public interface ReviewRepository extends CrudRepository<Review, Long> {
 
 }

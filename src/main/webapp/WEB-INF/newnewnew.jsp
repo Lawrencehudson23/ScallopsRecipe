@@ -34,7 +34,7 @@
 
 			<form:label path="description">Description:</form:label>
 			<%-- <form:errors path="description" /> --%>
-			<input path="description" />
+			<form:input path="description" />
 
 			<form:label path="prepTime">Prep Time:</form:label>
 			<%-- <form:errors path="prepTime" /> --%>

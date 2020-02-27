@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isErrorPage="true"%>
 <!DOCTYPE >
 <html lang="en">
 <head>
@@ -12,9 +13,9 @@
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link href="../css/materialize.css" type="text/css" rel="stylesheet"
+<link href="../../css/materialize.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
-<link href="../css/style.css" type="text/css" rel="stylesheet"
+<link href="../../css/style.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 </head>
 <body>
@@ -23,10 +24,11 @@
 			<a id="logo-container" href="/" class="brand-logo">Bestrecipes<i
 				class="material-icons">face</i></a>
 
-
+			<!-- *************urer******************** -->
 			<ul class="right hide-on-med-and-down">
-				<li><a href="/login"><c:out value="${currentUser.username}" /></a>
+				<li><a href="/login"></a>
 			</ul>
+			<!-- ************************************************** -->
 			<ul class="right hide-on-med-and-down">
 				<li><a href="/favorite"><i class="material-icons">favorite</i></a></li>
 			</ul>
@@ -45,23 +47,31 @@
 			<div class="container">
 				<br>
 				<br>
-				<h1 class="header center teal-text text-lighten-2">Create
-					Recipe</h1>
+				<!-- ************************************************** -->
+				<!--                                                         
+███████╗██████╗  ██████╗ ███╗   ███╗    ██╗  ██╗███████╗██████╗ ███████╗
+██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██║  ██║██╔════╝██╔══██╗██╔════╝
+█████╗  ██████╔╝██║   ██║██╔████╔██║    ███████║█████╗  ██████╔╝█████╗  
+██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══██║██╔══╝  ██╔══██╗██╔══╝  
+██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║  ██║███████╗██║  ██║███████╗
+╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝-->
+
 				<div class="row center">
-					<h5 class="header col s12 light">Create your own recipe</h5>
-					<h2>Create new recipe</h2>
+					<h5 class="header col s12 light">Edit recipe</h5>
+					<h2>${r.name}</h2>
 
 					<div class="container">
-						<form:form action="/recipe/new" method="post"
+						<form:form action="/recipes/${r.id}/edit" method="post"
 							modelAttribute="recipeObj">
-
+							<input type="hidden" name="_method" value="put">
 							<div>
-								<form:input type="hidden" path="id" />
+								<form:input type="hidden" path="id" value="${r.id }"/>
 
 								<form:label path="name">Name:</form:label>
-								<%-- <form:errors path="name" /> --%>
-								<form:input path="name" />
-<%-- 
+								<form:errors path="name" />
+								<form:input path="name" value="${r.name}" />
+
+								<%-- 
 								<form:label path="prepTime">Prep Time:</form:label>
 								<form:errors path="prepTime" />
 								<form:input path="prepTime" />
@@ -85,7 +95,7 @@
 							</div>
 							<br>
 							<br>
-<%-- 							<div>
+							<%-- 							<div>
 								<form:label path="ingredients">Ingredients:</form:label>
 								<form:errors path="ingredients" />
 								<form:input path="ingredients" />
@@ -93,25 +103,32 @@
 							<div>
 								<form:label path="directions">Directions:</form:label>
 								<%-- <form:errors path="directions" /> --%>
-								<form:input path="directions" />
+								<form:input path="directions" value="${r.directions}" />
 							</div>
 
 							<div class="row center">
 								<button id="download-button"
 									class="btn-large waves-effect waves-light teal lighten-1">
-									Create Recipe</button>
+									conform</button>
 							</div>
 						</form:form>
 					</div>
 				</div>
+				<!-- 		                                                      
+████████╗ ██████╗     ██╗  ██╗███████╗██████╗ ███████╗
+╚══██╔══╝██╔═══██╗    ██║  ██║██╔════╝██╔══██╗██╔════╝
+   ██║   ██║   ██║    ███████║█████╗  ██████╔╝█████╗  
+   ██║   ██║   ██║    ██╔══██║██╔══╝  ██╔══██╗██╔══╝  
+   ██║   ╚██████╔╝    ██║  ██║███████╗██║  ██║███████╗
+   ╚═╝    ╚═════╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════ -->
+				<!-- ************************************************** -->
 
 				<br>
 				<br>
-
 			</div>
 		</div>
 		<div class="parallax">
-			<img src="../img/b3.jpg" alt="Unsplashed background img 1">
+			<img src="../../img/b3.jpg" alt="Unsplashed background img 1">
 		</div>
 	</div>
 
@@ -125,7 +142,7 @@
 						<h2 class="center brown-text">
 							<i class="material-icons">fingerprint</i>
 						</h2>
-						<h5 class="center">Roasted Chicken</h5>
+						<h5 class="center">Display Recipe</h5>
 
 						<p class="light">We did most of the heavy lifting for you to
 							provide a default stylings that incorporate our custom
@@ -178,7 +195,7 @@
 			</div>
 		</div>
 		<div class="parallax">
-			<img src="../img/b2.jpg" alt="Unsplashed background img 2">
+			<img src="../../img/b2.jpg" alt="Unsplashed background img 2">
 		</div>
 	</div>
 
@@ -218,7 +235,7 @@
 			</div>
 		</div>
 		<div class="parallax">
-			<img src="../img/b4.jpg" alt="Unsplashed background img 3">
+			<img src="../../img/b4.jpg" alt="Unsplashed background img 3">
 		</div>
 	</div>
 
@@ -275,8 +292,8 @@
 
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="../js/materialize.js"></script>
-	<script src="../js/init.js"></script>
+	<script src="../../js/materialize.js"></script>
+	<script src="../../js/init.js"></script>
 
 </body>
 </html>
