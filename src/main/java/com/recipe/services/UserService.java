@@ -1,6 +1,9 @@
 package com.recipe.services;
 
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,12 +12,10 @@ import org.springframework.web.client.RestTemplate;
 import com.recipe.models.Recipe;
 import com.recipe.models.User;
 import com.recipe.repositories.CategoryRepository;
-import com.recipe.repositories.FavrecipeFavuserRepository;
 import com.recipe.repositories.IngredientRepository;
 import com.recipe.repositories.RecipeRepository;
-import com.recipe.repositories.ReviewrecipeReviewerRepository;
+import com.recipe.repositories.ReviewRepository;
 import com.recipe.repositories.RoleRepository;
-import com.recipe.repositories.UnitOfMeasureRepository;
 import com.recipe.repositories.UserRepository;
 
 @Service
@@ -23,11 +24,9 @@ public class UserService {
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private RecipeRepository recipeRepository;
-    private FavrecipeFavuserRepository favrecipeFavuserRepository;
-    private ReviewrecipeReviewerRepository reviewrecipeReviewerRepository;
+    private ReviewRepository reviewRepository;
     private CategoryRepository categoryRepository;
     private IngredientRepository ingredientRepository;
-    private UnitOfMeasureRepository unitOfMeasureRepository;
     private final RestTemplate restTemplate;
     
 
@@ -36,19 +35,16 @@ public class UserService {
     
     public UserService(UserRepository userRepository, RoleRepository roleRepository,
 			BCryptPasswordEncoder bCryptPasswordEncoder, RecipeRepository recipeRepository,
-			FavrecipeFavuserRepository favrecipeFavuserRepository,
-			ReviewrecipeReviewerRepository reviewrecipeReviewerRepository, CategoryRepository categoryRepository,
-			IngredientRepository ingredientRepository, UnitOfMeasureRepository unitOfMeasureRepository,
+			ReviewRepository reviewRepository, CategoryRepository categoryRepository,
+			IngredientRepository ingredientRepository, 
 			RestTemplateBuilder restTemplateBuilder) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.recipeRepository = recipeRepository;
-		this.favrecipeFavuserRepository = favrecipeFavuserRepository;
-		this.reviewrecipeReviewerRepository = reviewrecipeReviewerRepository;
+		this.reviewRepository = reviewRepository;
 		this.categoryRepository = categoryRepository;
 		this.ingredientRepository = ingredientRepository;
-		this.unitOfMeasureRepository = unitOfMeasureRepository;
 	    this.restTemplate = restTemplateBuilder.build();
 	}
 
@@ -83,5 +79,24 @@ public class UserService {
 	public String starWarsApi() {
 		String uri = "https://swapi.co/api/";
 		return this.restTemplate.getForObject(uri,String.class);
+		
+		
+	}
+	
+	public List<Recipe> getAllRecipes() {
+		return this.recipeRepository.findAll();
+	}
+
+	public Recipe getRecipeById(Long recipeId) {
+		Optional<Recipe> r = this.recipeRepository.findById(recipeId);
+		if(r.isPresent()) {
+			return r.get();
+		}
+		return null;
+	}
+
+	public void deleteRecipe(Long recipeId) {
+		this.recipeRepository.deleteById(recipeId);
+		System.out.println(recipeId);
 	}
 }

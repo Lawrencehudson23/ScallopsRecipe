@@ -17,12 +17,13 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "reviewrecipes_reviewers")
-public class ReviewrecipeReviewer {
+@Table(name = "reviews")
+public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	private Long rating;
+	private String text;
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -40,7 +41,7 @@ public class ReviewrecipeReviewer {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	public ReviewrecipeReviewer() {
+	public Review() {
 	}
 
 	public Long getId() {
@@ -49,6 +50,22 @@ public class ReviewrecipeReviewer {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getRating() {
+		return rating;
+	}
+
+	public void setRating(Long rating) {
+		this.rating = rating;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	public Date getCreatedAt() {
