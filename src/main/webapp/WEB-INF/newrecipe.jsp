@@ -20,7 +20,7 @@
 <body>
 	<nav class="white" role="navigation">
 		<div class="nav-wrapper container">
-			<a id="logo-container" href="/" class="brand-logo">Bestrecipes<i
+			<a id="logo-container" href="/" class="brand-logo">Scallopsrecipes<i
 				class="material-icons">face</i></a>
 
 
@@ -53,7 +53,7 @@
 
 					<div class="container">
 						<form:form action="/recipe/new" method="post"
-							modelAttribute="recipeObj">
+							modelAttribute="recipeObj" enctype="multipart/form-data">
 
 							<div>
 								<form:input type="hidden" path="id" />
@@ -77,11 +77,10 @@
 
 								<form:label path="source">Source:</form:label>
 								<form:errors path="source" />
-								<form:input path="source" />
+								<form:input path="source" />  --%>
 
-								<form:label path="url">Url:</form:label>
-								<form:errors path="url" />
-								<form:input path="url" /> --%>
+								<label>Image:</label>
+								<input type="file" name="image" /> 
 							</div>
 							<br>
 							<br>
@@ -101,6 +100,7 @@
 									class="btn-large waves-effect waves-light teal lighten-1">
 									Create Recipe</button>
 							</div>
+							
 						</form:form>
 					</div>
 				</div>

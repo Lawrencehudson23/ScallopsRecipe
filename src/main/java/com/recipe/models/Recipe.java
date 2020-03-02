@@ -12,6 +12,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String imageUrl;
 
     @OneToMany(mappedBy = "recipe",fetch = FetchType.LAZY)
     private List<Ingredient> ingredients;
@@ -38,6 +39,8 @@ public class Recipe {
     	
 	public Recipe() {
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -103,6 +106,14 @@ public class Recipe {
 
 	public void setReviewers(List<User> reviewers) {
 		this.reviewers = reviewers;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 }

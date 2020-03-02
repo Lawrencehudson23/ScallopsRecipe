@@ -20,12 +20,12 @@
 <body>
 	<nav class="white" role="navigation">
 		<div class="nav-wrapper container">
-			<a id="logo-container" href="/" class="brand-logo">Bestrecipes<i
+			<a id="logo-container" href="/" class="brand-logo">Scallopsrecipes<i
 				class="material-icons">face</i></a>
 
 
 			<ul class="right hide-on-med-and-down">
-				<li><a href="/login"><c:out value="${currentUser.username}" /></a>
+				<li><a href="/admin"><c:out value="${currentUser.username}" /></a>
 			</ul>
 			<ul class="right hide-on-med-and-down">
 				<li><a href="/favorite"><i class="material-icons">favorite</i></a></li>
@@ -43,9 +43,8 @@
 	<div id="index-banner" class="parallax-container">
 		<div class="section no-pad-bot">
 			<div class="container">
-				<br>
-				<br>
-				<h1 class="header center teal-text text-lighten-2">Bestrecipes</h1>
+				<br> <br>
+				<h1 class="header center teal-text text-lighten-2">Scallopsrecipes</h1>
 				<div class="row center">
 					<h5 class="header col s12 light">Create your own recipe</h5>
 				</div>
@@ -54,8 +53,7 @@
 						class="btn-large waves-effect waves-light teal lighten-1">Get
 						Started</a>
 				</div>
-				<br>
-				<br>
+				<br> <br>
 
 			</div>
 		</div>
@@ -69,57 +67,20 @@
 		<div class="section">
 			<!--   Icon Section   -->
 			<div class="row">
-				<c:out value="${array}" />
-				<h2 class="center brown-text">
-					<i class="material-icons">group</i>
-				</h2>
-				<h5 class="center">
-					<a href="${href}">${title}</a>
-				</h5>
-				<h6 class="center">
-					<img src="${thumbnail}" alt="">
-				</h6>
-				<h5 class="center">
-					${ingredients}
-				</h5>
-<%--  			<c:forEach items="${array }" var="a">
-      <c:out value="${a.getAsJsonObject().get('title').getAsString()}"/>
-				</c:forEach>  --%>
-<%--         <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center"><a href="/recipes/1">${r}</a></h5>
+				<c:forEach var="i" begin="0" end="${listTitles.size() - 1}">
 
-
-            <p class="light">${r.ingredients}</p>
-          </div>
-        </div>  --%>
-<%-- 				<c:forEach items="${array}" var="a">
 					<div class="col s12 m4">
 						<div class="icon-block">
-							<h2 class="center brown-text">
-								<i class="material-icons">group</i>
-							</h2>
-							<h6 class="center">
-								<img src="${a.getAsJsonObject().get('thumbnail').getAsString()}"
-									alt="">
-							</h6>
-							<h5 class="center">
-								<a href="${a.getAsJsonObject().get('href').getAsString()}">a.getAsJsonObject().get("title").getAsString()</a>
-							</h5>
-							<p class="light">
-								<c:forEach
-									items="${a.getAsJsonObject().get('ingredients').getAsArray()}"
-									var="i">
-            ${i}
-            </c:forEach>
-							</p>
+								<h6 class="center">
+									<a href="/recipes/${listIds.get(i)}"><img src="${listImages.get(i)}" alt=""></a>
+								</h6>
+								<h6 class="center">
+									<a href="${listSourceUrls.get(i)}">${listTitles.get(i)}</a>
+								</h6>
 						</div>
 					</div>
-				</c:forEach> --%>
-
+				</c:forEach>
 			</div>
-
 		</div>
 	</div>
 
@@ -129,7 +90,7 @@
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row center">
-					<h5 class="header col s12 light">java is great</h5>
+					<h5 class="header col s12 light">${joke1 }</h5>
 				</div>
 			</div>
 		</div>
@@ -138,38 +99,38 @@
 		</div>
 	</div>
 
-	<div class="container">
+<div class="container">
 		<div class="section">
-
+			<!--   Icon Section   -->
 			<div class="row">
-				<div class="col s12 center">
-					<h3>
-						<i class="mdi-content-send brown-text"></i>
-					</h3>
-					<h4>Contact Us</h4>
-					<p class="left-align light">Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Nullam scelerisque id nunc nec
-						volutpat. Etiam pellentesque tristique arcu, non consequat magna
-						fermentum ac. Cras ut ultricies eros. Maecenas eros justo,
-						ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque,
-						posuere et pretium eget, bibendum sollicitudin lacus. Aliquam
-						eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla
-						imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum
-						ac, gravida ultrices erat. Nullam eget dignissim mauris, non
-						tristique erat. Vestibulum ante ipsum primis in faucibus orci
-						luctus et ultrices posuere cubilia Curae;</p>
-				</div>
+				<c:forEach items="${allRecipes}" var="r">
+
+					<div class="col s12 m4">
+						<div class="icon-block">
+								<h6 class="center">
+									<a href="/recipes/${r.id}"><img src="${r.imageUrl}" alt=""></a>
+								</h6>
+								<h6 class="center">
+									<a href="/recipes/${r.id}">${r.name}</a>
+								</h6>
+								<h6 class="center">
+									${r.creator.username}
+								</h6>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 
 		</div>
 	</div>
 
 
+
 	<div class="parallax-container valign-wrapper">
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row center">
-					<h5 class="header col s12 light">I love java</h5>
+					<h5 class="header col s12 light">${joke2 }</h5>
 				</div>
 			</div>
 		</div>
@@ -200,7 +161,7 @@
 						<li><a class="white-text" href="#!">Vinsmoke Sanji</a></li>
 						<li><a class="white-text" href="#!">Tony Tony Chopper</a></li>
 						<li><a class="white-text" href="#!">Nico Robin</a></li>
-						<li><a class="white-text" href="#!">Franky</a></li>
+						<li><a class="white-text" href="#!">Aya</a></li>
 						<li><a class="white-text" href="#!">Lawrence</a></li>
 					</ul>
 				</div>

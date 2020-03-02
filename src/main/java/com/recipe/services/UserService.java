@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.recipe.models.Recipe;
 import com.recipe.models.User;
+import com.recipe.repositories.ApiRecipeRepository;
 import com.recipe.repositories.CategoryRepository;
 import com.recipe.repositories.IngredientRepository;
 import com.recipe.repositories.RecipeRepository;
@@ -27,6 +28,7 @@ public class UserService {
     private ReviewRepository reviewRepository;
     private CategoryRepository categoryRepository;
     private IngredientRepository ingredientRepository;
+    private ApiRecipeRepository apiRecipeRepository;
     private final RestTemplate restTemplate;
     
 
@@ -36,7 +38,7 @@ public class UserService {
     public UserService(UserRepository userRepository, RoleRepository roleRepository,
 			BCryptPasswordEncoder bCryptPasswordEncoder, RecipeRepository recipeRepository,
 			ReviewRepository reviewRepository, CategoryRepository categoryRepository,
-			IngredientRepository ingredientRepository, 
+			IngredientRepository ingredientRepository, ApiRecipeRepository apiRecipeRepository,
 			RestTemplateBuilder restTemplateBuilder) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
@@ -45,6 +47,7 @@ public class UserService {
 		this.reviewRepository = reviewRepository;
 		this.categoryRepository = categoryRepository;
 		this.ingredientRepository = ingredientRepository;
+		this.apiRecipeRepository = apiRecipeRepository;
 	    this.restTemplate = restTemplateBuilder.build();
 	}
 
@@ -76,12 +79,12 @@ public class UserService {
 
 	}
 	
-	public String starWarsApi() {
-		String uri = "https://swapi.co/api/";
-		return this.restTemplate.getForObject(uri,String.class);
-		
-		
-	}
+//	public String starWarsApi() {
+//		String uri = "https://swapi.co/api/";
+//		return this.restTemplate.getForObject(uri,String.class);
+//		
+//		
+//	}
 	
 	public List<Recipe> getAllRecipes() {
 		return this.recipeRepository.findAll();
