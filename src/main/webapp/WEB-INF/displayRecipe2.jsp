@@ -47,7 +47,7 @@
                       <h2 class="center brown-text"><i class="material-icons">group</i></h2>
             <h5 class="center">${title}</h5>
             <img src="${image}"class="center">
-<%--             <h6 class="center">${extendedIngredients}</h6> --%>
+            <h6 class="center">${extendedIngredients}</h6>
 
             <p class="light">${instructions}</p>
                
@@ -56,13 +56,21 @@
 		<div class="row center">
           <a href="/recipes/${recipeId }/edit" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Edit Recipe</a>
         </div>
+        
+<%-- 		<div class="row center">
+		<form action="/recipes/${r.id }" method="post">
+		    <input type="hidden" name="_method" value="delete">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+          	<button  id="download-button" class="btn-large waves-effect waves-light teal lighten-1">delete recipe</button>
+		</form>
+        </div>  --%>
 		
 		        <!-- ************************************************** -->
 		
         <br><br>
       </div>
     </div>
-    <div class="parallax"><img src="../img/b4.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="../img/b3.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
