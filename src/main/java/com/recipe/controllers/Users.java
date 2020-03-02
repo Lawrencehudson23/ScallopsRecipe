@@ -1,7 +1,10 @@
 package com.recipe.controllers;
 
 import java.security.Principal;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,7 +28,10 @@ import com.google.gson.JsonObject;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+<<<<<<< HEAD
 import com.recipe.models.Ingredient;
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 import com.recipe.models.Recipe;
 import com.recipe.models.User;
 import com.recipe.services.UserService;
@@ -141,21 +147,31 @@ public class Users {
     	String username = principal.getName();
     	User currentUser = userService.findByUsername(username);
     	model.addAttribute("currentUser", currentUser);
+<<<<<<< HEAD
+=======
+    	
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
         if (result.hasErrors()) {
             return "newrecipe.jsp";
         }
 //        User user = this.userService.findByUsername(username);
         
+<<<<<<< HEAD
         
         Recipe newRecipe = userService.createNewRecipe(recipeObj,currentUser);
         System.out.println("You created a new recipe!!!");
      
+=======
+        userService.createNewRecipe(recipeObj,currentUser);
+        System.out.println("You created a new recipe!!!");
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
         return "redirect:/";
     }
     @GetMapping("recipes/{recipeId}")
     public String displayRecipe(@PathVariable("recipeId")Long recipeId,Model model) {
     	Recipe r = this.userService.getRecipeById(recipeId);
     	model.addAttribute("r", r);
+<<<<<<< HEAD
     	
     	String[] ingredients = r.getIngredients().split(",");
     	
@@ -165,6 +181,8 @@ public class Users {
     	
     	model.addAttribute("ingredients","ingredients");    	
     	
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
     	return "displayRecipe.jsp";
     }
     @GetMapping("recipes/{recipeId}/edit")

@@ -60,7 +60,11 @@
 
 								<form:label path="name">Name:</form:label>
 								<%-- <form:errors path="name" /> --%>
+<<<<<<< HEAD
 								<form:input style="margin-bottom:30px" path="name" /> 
+=======
+								<form:input path="name" />
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 <%-- 
 								<form:label path="prepTime">Prep Time:</form:label>
 								<form:errors path="prepTime" />
@@ -90,6 +94,7 @@
 								<form:errors path="ingredients" />
 								<form:input path="ingredients" />
 							</div> --%>
+<<<<<<< HEAD
 			
 							<div>
 								
@@ -99,6 +104,9 @@
 							</div>
 							
 							<div style="margin-top:20px">
+=======
+							<div>
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 								<form:label path="directions">Directions:</form:label>
 								<%-- <form:errors path="directions" /> --%>
 								<form:input path="directions" />

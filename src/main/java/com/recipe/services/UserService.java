@@ -9,7 +9,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+<<<<<<< HEAD
 import com.recipe.models.Ingredient;
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 import com.recipe.models.Recipe;
 import com.recipe.models.User;
 import com.recipe.repositories.CategoryRepository;
@@ -69,8 +72,11 @@ public class UserService {
     }
 
 
+<<<<<<< HEAD
     
     //******************recipe********************
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 	public Recipe createNewRecipe(Recipe recipe,User user) {
 		
 		recipe.setCreator(user);
@@ -102,6 +108,7 @@ public class UserService {
 		this.recipeRepository.deleteById(recipeId);
 		System.out.println(recipeId);
 	}
+<<<<<<< HEAD
 	
 	public Recipe saveRecipe(Recipe r) {
 		return this.recipeRepository.save(r);
@@ -112,4 +119,6 @@ public class UserService {
 		return this.ingredientRepository.save(i);
 	}
 	
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 }

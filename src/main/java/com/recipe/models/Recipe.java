@@ -13,12 +13,18 @@ public class Recipe {
     private Long id;
     private String name;
 
+<<<<<<< HEAD
 //    @OneToOne(mappedBy = "recipe", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 //    private Ingredient ingredients;
 
 
     private String ingredients;
     
+=======
+    @OneToMany(mappedBy = "recipe",fetch = FetchType.LAZY)
+    private List<Ingredient> ingredients;
+
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
     private String directions;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -68,11 +74,19 @@ public class Recipe {
 		this.directions = directions;
 	}
 
+<<<<<<< HEAD
 	public String getIngredients() {
 		return ingredients;
 	}
 
 	public void setIngredients(String ingredients) {
+=======
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 		this.ingredients = ingredients;
 	}
 

@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<<<<<<< HEAD
   <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
   
   <script type="text/javascript">
@@ -40,6 +41,8 @@
 
   </script>
   
+=======
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 </head>
 <body>
   <nav class="white" role="navigation">
@@ -64,6 +67,7 @@
 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
+<<<<<<< HEAD
       <div class="container recipe-display-box">
         <br><br>
         		<!-- ************************************************** -->
@@ -89,6 +93,21 @@
 		
 		
 		
+=======
+      <div class="container">
+        <br><br>
+        		<!-- ************************************************** -->
+        <h1 class="header center teal-text text-lighten-2">Display Recipe</h1>
+        <div class="row center">
+                      <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">${r.name}</h5>
+            <h6 class="center">${r.creator.username}</h6>
+
+            <p class="light">${r.directions}</p>
+               
+			
+		</div>
+>>>>>>> 5f7c5b490794f180dfa8e0ba20f74b4725b46843
 		<div class="row center">
           <a href="/recipes/${r.id }/edit" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Edit Recipe</a>
         </div>
