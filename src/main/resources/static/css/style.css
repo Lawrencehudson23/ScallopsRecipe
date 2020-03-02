@@ -70,7 +70,14 @@ footer.page-footer {
 	align-items: center;	
 	color:black;	
 }
+.draw-line{
+	text-decoration:line-through;
+	color:gray;
+}
 
+.ingredients-list{
+	cursor:pointer;
+}
 
 
 

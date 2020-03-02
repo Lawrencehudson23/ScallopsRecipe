@@ -20,23 +20,23 @@
   <script type="text/javascript">
 
   $(document).ready(function(){
-
-      $('.ingredients-list').click(function(){
-          if ($('.ingredients-list').css('text-decoration') === 'line-through'){
-
-              $(this).removeProp('text-decoration');
-          } else {
-
-              $(this).css("text-decoration", "line-through");
-  
-
-          }
-      })
-      
+	  
+	  
+	  
 
 
+	  $('.ingredients-list').click(function(){
+	    
+
+	          $(this).toggleClass("draw-line");
+
+
+
+
+
+
+	  });
   });
-
 
   </script>
   
