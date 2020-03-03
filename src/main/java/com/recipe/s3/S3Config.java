@@ -12,7 +12,7 @@ import com.amazonaws.services.s3.model.PutObjectResult;
 
 public class S3Config {
 	private static BasicAWSCredentials credentials = new BasicAWSCredentials(
-			  "AKIAR5CSJOBSHDWPXU6F", 
+			  "<Aws Access Key>", 
 			  "9NgB0QG9gQxxefD52mcOUlm4utI7s99OwRMGrphW"
 			);
 	private static AmazonS3 s3client = AmazonS3ClientBuilder
