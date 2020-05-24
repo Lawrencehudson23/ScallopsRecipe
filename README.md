@@ -1,1 +1,1 @@
-# BestRecipe
+# ScallopsRecipe
